@@ -110,6 +110,12 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         cameraManager = new CameraManager(getApplication());
         viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
         viewfinderView.setCameraManager(cameraManager);
+        viewfinderView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cameraManager.autoFocus();
+            }
+        });
         handler = null;
         lastResult = null;
         resetStatusView();
